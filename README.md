@@ -13,7 +13,7 @@ import numpy as np
 var = np.var(df['column1'])
 ```
 
-### Standard Deviation
+### Standard Deviation
 
 The standard deviation is a measure that is used to quantify the amount of variation or dispersion of a set of data values.
 
@@ -23,7 +23,7 @@ var1 = np.std(df['column1'])
 var2 = np.sqrt(np.var(df['column1']))
 ```
 
-### Covariance
+### Covariance
 
 The covariance is a measure of the joint variability of two random variables. Informally, a measure of how two quantities vary together.
 
@@ -38,7 +38,7 @@ cov = np.cov(df['column1'], df['column2'])
 
 A probability mass function (PMF) is a function that gives the probability that a discrete random variable is exactly equal to some value.
 
-### Probability Density Function (PDF)
+### Probability Density Function (PDF)
 
 A probability density function (PDF) is a function whose value at any given sample in the sample space can be interpreted as providing a relative likelihood that the value of the random variable would equal that sample.
 
@@ -58,7 +58,7 @@ y = np.arange(1, len(x)+1) / len(x)
 
 ## Distributions
 
-### Binomial Distribution
+### Binomial Distribution
 
 The binomial distribution with parameters n and p is the discrete probability distribution of the number of successes in a sequence of n independent experiments, each asking a yes–no question, and each with its own boolean-valued outcome: a random variable containing a single bit of information: success/yes/true/one (with probability p) or failure/no/false/zero (with probability q = 1 − p).
 
