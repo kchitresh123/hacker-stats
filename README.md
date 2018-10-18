@@ -56,6 +56,10 @@ x = np.sort(df['column1'])
 y = np.arange(1, len(x)+1) / len(x)
 ```
 
+### Pearson Correlation
+
+The Pearson correlation coefficient is a measure of the linear correlation between two variables X and Y. It has a value between +1 and −1, where 1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation.
+
 ## Distributions
 
 ### Binomial Distribution
