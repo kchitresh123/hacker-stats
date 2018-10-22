@@ -2,6 +2,8 @@
 
 A Jupyter notebook to hack on statistics with Python, adapted from DataCamp and Wikipedia.
 
+[![iris.ipynb](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cbismuth/hacker-stats/master?filepath=iris.ipynb)
+
 ## Definitions
 
 ### Variance
