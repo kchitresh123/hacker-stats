@@ -80,3 +80,60 @@ The exponential distribution is the continuous probability distribution that des
 ## Normal Distribution
 
 The normal distribution states, under some conditions (which include finite variance), that averages of samples of observations of random variables independently drawn from independent distributions converge in distribution to the normal, that is, become normally distributed when the number of observations is sufficiently large.
+
+# Boostrapping
+
+## Simulation
+
+Use mean of random choices to generate bootstrap replicates from a single distribution.
+
+## One sample test
+
+Use mean-shiftting when only one distribution and the mean of the other one are available.
+
+```python
+data_2 = data_1_shifted = data_1 - np.mean(data_1) + mean_2
+```
+
+Then use one of the "two sample test" methods below with `data_1` and `data_2`.
+
+## Two sample test
+
+Use permutation when the two distributions are available.
+
+Useful for A/B testing with difference fraction as `func`.
+
+```python
+# Null hypothesis: change has no effect between A and B.
+# clickthrough_A, clickthrough_B: arr. of 1s and 0s
+def generate_replicates(data_1: np.ndarray, data_2: np.ndarray, func: Callable[[np.ndarray, np.ndarray], float], size: int=1) -> np.ndarray:
+    replicates = np.empty(size)
+    for i in range(size):
+        all = np.concatenate((data_1, data_2))
+        permuted = np.random.permutation(all)
+        sample_1 = permuted[:len(data_1)]
+        sample_2 = permuted[len(data_2):]
+        replicates[i] = func(sample_1, sample_2)
+    return replicates
+
+
+def diff_frac(data_A: np.ndarray, data_B: np.ndarray) -> float:
+    frac_A = np.sum(data_A) / len(data_A)
+    frac_B = np.sum(data_B) / len(data_B)
+    return frac_B - frac_A
+
+
+p = np.sum(diff_frac_replicates >= diff_frac_actual) / len(replicates)
+```
+
+Useful for correlation with Pearson correlation as `func`.
+
+```python
+# Null hypothesis: illiteracy and fertility are unrelated.
+r_actual = pearson_r(illiteracy, fertility)
+replicates = np.empty(1000000)
+for i in range(1000000):
+    illiteracy_permuted = np.random.permutation(illiteracy)
+    replicates[i] = pearson_r(illiteracy_permuted, fertility)
+p = np.sum(replicates >= r_actual) / len(replicates)
+```
