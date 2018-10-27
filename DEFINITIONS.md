@@ -127,13 +127,3 @@ p = np.sum(diff_frac_replicates >= diff_frac_actual) / len(replicates)
 ```
 
 Useful for correlation with Pearson correlation as `func`.
-
-```python
-# Null hypothesis: illiteracy and fertility are unrelated.
-r_actual = pearson_r(illiteracy, fertility)
-replicates = np.empty(1000000)
-for i in range(1000000):
-    illiteracy_permuted = np.random.permutation(illiteracy)
-    replicates[i] = pearson_r(illiteracy_permuted, fertility)
-p = np.sum(replicates >= r_actual) / len(replicates)
-```
