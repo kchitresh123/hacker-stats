@@ -106,7 +106,8 @@ Then use one of the "two sample test" methods below with `data_1` and `data_2`.
 
 Use permutation when the two distributions are available.
 
-Useful for A/B testing with difference fraction as `func`.
+* Useful for correlation with Pearson correlation as `func`.
+* Useful for A/B testing with difference fraction as `func`.
 
 ```python
 # Null hypothesis: change has no effect between A and B.
@@ -130,5 +131,3 @@ def diff_frac(data_A: np.ndarray, data_B: np.ndarray) -> float:
 
 p = np.sum(diff_frac_replicates >= diff_frac_actual) / len(replicates)
 ```
-
-Useful for correlation with Pearson correlation as `func`.
