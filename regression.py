@@ -43,10 +43,12 @@ y_pred_all = reg_all.predict(X_test)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_all))
 print(f"Root Mean Squared Error is {rmse}")
 
+X_test_fertility = X_test[:, 1]
+
 plt.title(f"Linear Regression")
 plt.scatter(df['fertility'], df['life'])
 plt.plot(prediction_space, y_pred, color='black')
-plt.scatter(X_test[:, 1], y_pred_all, color='red')
+plt.scatter(X_test_fertility, y_pred_all, color='red')
 plt.legend()
 plt.xlabel(f"Fertility")
 plt.ylabel(f"Life Expectancy")
