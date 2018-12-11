@@ -27,8 +27,8 @@ y_pred = reg.predict(prediction_space)
 # Linear regression over all features
 
 df = pd.read_csv('gapminder.csv')
-X = df['fertility'].values.reshape(-1, 1)
-y = df.drop(['fertility', 'Region'], axis=1).values
+X = df.drop(['life', 'Region'], axis=1).values
+y = df['life'].values.reshape(-1, 1)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
@@ -43,12 +43,10 @@ y_pred_all = reg_all.predict(X_test)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_all))
 print(f"Root Mean Squared Error is {rmse}")
 
-y_pred_fertility = y_pred_all[:, -2].reshape(-1, 1)
-
 plt.title(f"Linear Regression")
 plt.scatter(df['fertility'], df['life'])
 plt.plot(prediction_space, y_pred, color='black')
-plt.plot(X_test, y_pred_fertility, color='red')
+plt.scatter(X_test[:, 1], y_pred_all, color='red')
 plt.legend()
 plt.xlabel(f"Fertility")
 plt.ylabel(f"Life Expectancy")
