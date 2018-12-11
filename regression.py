@@ -5,7 +5,7 @@ import pandas as pd
 
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 
 import matplotlib.pyplot as plt
 
@@ -36,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 reg_all = LinearRegression()
 reg_all.fit(X_train, y_train)
-score = reg_all.score(X_test, y_test)
+score = np.mean(cross_val_score(reg_all, X, y, cv=10))
 print(f"R^2={score}")
 
 y_pred_all = reg_all.predict(X_test)
