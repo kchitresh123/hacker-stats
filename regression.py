@@ -41,7 +41,7 @@ print(f"R^2={score}")
 
 y_pred_all = reg_all.predict(X_test)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred_all))
-print("Root Mean Squared Error: {}".format(rmse))
+print(f"Root Mean Squared Error is {rmse}")
 
 plt.title(f"Linear Regression")
 plt.scatter(df['fertility'], df['life'])
