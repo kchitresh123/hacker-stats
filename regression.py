@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split, cross_val_score
 
@@ -52,4 +52,17 @@ plt.scatter(X_test_fertility, y_pred_all, color='red')
 plt.legend()
 plt.xlabel(f"Fertility")
 plt.ylabel(f"Life Expectancy")
+plt.show()
+
+# Significant feature detection
+
+lasso = Lasso(alpha=0.4, normalize=True)
+lasso.fit(X_train, y_train)
+
+df_columns = df.drop(['life', 'Region'], axis=1).columns
+plt.title(f"Life expectancy significant features detection")
+plt.plot(range(len(df_columns)), lasso.coef_)
+plt.xticks(range(len(df_columns)), df_columns.values, rotation=60)
+plt.xlabel(f"Feature")
+plt.ylabel(f"Lasso coefficient")
 plt.show()
