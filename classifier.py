@@ -5,6 +5,7 @@ import numpy as np
 from sklearn import datasets
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
 
 import matplotlib.pyplot as plt
 
@@ -34,3 +35,12 @@ plt.legend()
 plt.xlabel(f"Number of Neighbors")
 plt.ylabel(f"Accuracy")
 plt.show()
+
+# k=3 looks to be the best fit
+
+knn = KNeighborsClassifier(3)
+knn.fit(X_train, y_train)
+
+y_pred = knn.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
