@@ -2,7 +2,10 @@
 
 [![Binder](https://img.shields.io/badge/binder-iris.ipynb-green.svg)](https://mybinder.org/v2/gh/cbismuth/hacker-stats/master?filepath=iris.ipynb)
 
-Jupyter notebooks to hack on statistics with Python.
+This repository contains:
+
+* A [Jupyter notebook](iris.ipynb) to hack on statistics with Python (distributions, p-values ...)
+* A [scikit-learn classifier](classifier.py) sample ([output](classifier.png))
 
 # Definitions
 
