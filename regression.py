@@ -60,6 +60,7 @@ lasso = Lasso(alpha=0.4, normalize=True)
 lasso.fit(X_train, y_train)
 
 df_columns = df.drop(['life', 'Region'], axis=1).columns
+
 plt.title(f"Life expectancy significant features detection")
 plt.plot(range(len(df_columns)), lasso.coef_)
 plt.xticks(range(len(df_columns)), df_columns.values, rotation=60)
