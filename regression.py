@@ -14,9 +14,9 @@ y = df['life'].values.reshape(-1, 1)
 prediction_space = np.linspace(min(X), max(X)).reshape(-1, 1)
 reg = LinearRegression()
 reg.fit(X, y)
-y_pred = reg.predict(prediction_space)
-
 print(reg.score(X, y))
+
+y_pred = reg.predict(prediction_space)
 
 plt.title(f"Linear Regression")
 plt.scatter(df['fertility'], df['life'])
