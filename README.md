@@ -4,7 +4,7 @@
 
 This repository contains:
 
+* A [definitions](DEFINITIONS.md) file to define general concepts
 * A [Jupyter notebook](iris.ipynb) to hack on statistics with Python (distributions, p-values ...)
 * A [scikit-learn classifier](classifier.py) sample ([output](classifier.png))
 * A [scikit-learn regression](regression.py) sample ([output](regression.png), [features](lasso.png))
-* A [definitions](DEFINITIONS.md) file to define general concepts
